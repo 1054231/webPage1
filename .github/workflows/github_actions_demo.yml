@@ -28,6 +28,6 @@ jobs:
       - name: Printing
         run: |
           echo "Modified:"
-          echo "${{ steps.abc.outputs.modified }}"
+          echo "npm test ${{ steps.abc.outputs.modified }}"
           echo "Added+Modified:"
-          echo "${{ steps.abc.outputs.added_modified }}"
+          echo "npm test ${{ steps.abc.outputs.added_modified }}"
