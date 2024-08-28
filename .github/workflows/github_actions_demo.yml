@@ -33,6 +33,22 @@ jobs:
       - name: Printing
         run: |
           echo "Modified:"
-          yarn test ${{ steps.abc.outputs.modified }}
+          yarn test ${{ steps.abc.outputs.modified }} --passWithNoTests
           echo "Added+Modified:"
-          yarn test ${{ steps.abc.outputs.added_modified }}
+          yarn test ${{ steps.abc.outputs.added_modified }} --passWithNoTests
+  list:
+    runs-on: ubuntu-latest
+    steps:  
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v14.6
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
