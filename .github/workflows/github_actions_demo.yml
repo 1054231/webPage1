@@ -16,26 +16,6 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2.1.0
-      - uses: jitterbit/get-changed-files@v1
-        id: abc
-        with:
-          format: space-delimited
-          token: ${{ secrets.GITHUB_TOKEN }}
-          node-version: 12.x
-          cache: yarn
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Printing
-        run: |
-          echo "Modified:"
-          yarn test ${{ steps.abc.outputs.modified }} --passWithNoTests
-          echo "Added+Modified:"
-          yarn test ${{ steps.abc.outputs.added_modified }} --passWithNoTests
   list:
     runs-on: ubuntu-latest
     steps:  
