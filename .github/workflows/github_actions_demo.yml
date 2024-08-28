@@ -28,6 +28,7 @@ jobs:
       - name: Printing
         run: |
           echo "Modified:"
-          npm test ${{ steps.abc.outputs.modified }}
+          echo "git diff --name-only -r HEAD^1 HEAD"
+          yarn jest ${{ steps.abc.outputs.modified }}
           echo "Added+Modified:"
-          npm test ${{ steps.abc.outputs.added_modified }}
+          yarn jest ${{ steps.abc.outputs.added_modified }}
