@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "react-scripts test --env=jsdom"
+    "test": "jest --maxWorkers=2 --silent"
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
