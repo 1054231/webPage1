@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --maxWorkers=2 --silent"
+    "test": "jest --maxWorkers=2 --silent",
+    "test:cover": "jest --maxWorkers=2 --silent -target=test:cover"
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
