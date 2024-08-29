@@ -27,5 +27,5 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
+          yarn test $file --passWithNoTests
           done
